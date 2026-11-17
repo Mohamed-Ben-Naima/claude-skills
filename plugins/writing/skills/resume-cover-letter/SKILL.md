@@ -9,15 +9,51 @@ Produces job application documents: a resume/CV, a cover letter, or both. Every 
 
 ## Before You Start
 
-Gather these inputs. Ask for anything missing:
+The candidate's background is already loaded below in **Candidate Profile**, so do not re-ask for it. Gather only:
 
 1. **Target role** — job title, company name, and the job listing or description (paste or URL)
-2. **Mode** — "resume", "cover-letter", or "both"
-3. **Region** — AU/NZ, US, or UK (affects format, terminology, length expectations)
-4. **Candidate background** — current role, years of experience, key skills, education, career highlights
-5. **Special circumstances** (if any) — career change, employment gap, overqualified, underqualified, visa/relocation
+2. **Mode** — "resume", "cover-letter", or "both" (default: ask)
+3. **Angle** — which domain to lead with for this role: software, cloud/DevOps, DevSecOps, network, or cybersecurity. Infer it from the listing; confirm if unclear.
 
-If the user provides a job listing, extract the key requirements and tailor everything to match them. Mirror the language the listing uses for skills and responsibilities.
+Defaults, unless the role says otherwise: **one page, single column, English, ATS-safe.** Many Tunisian employers and some international ones (e.g. Harvest, Medius) reject non-English CVs, so English is the default and French is used only when the offer or its form is French.
+
+If the user provides a job listing, extract its key requirements and mirror its language for skills and responsibilities. Tailor every line to that role; a generic document is not useful.
+
+---
+
+## Candidate Profile — Mohamed Ben Naima
+
+**Contact:** Mahdia, Tunisia · +216 25 577 542 · Medbennaima2021@gmail.com · linkedin.com/in/mohamed-ben-naima · github.com/Mohamed-Ben-Naima · portfolio mohamed-ben-naima.netlify.app · open to a 6-month PFE (end-of-studies) internship from January 2027, and to software, cloud and security roles including remote and relocation (Canada, Switzerland, Japan).
+
+**Education:** ESPRIM Monastir, Engineering Degree in Cybersecurity and Cloud Computing, 2024–2027 (ranked first in class — state this once, in Education only). ISIMa Mahdia, BSc in Software Engineering, 2021–2024, highest honours.
+
+**Evidence base (only these facts; nothing invented).** Pick the ones that fit the role and lead with the strongest:
+- **Alfa Computers & Consulting** (freelance, accounting ERP in C#/.NET 9, clean layered architecture): owns five modules — the RBAC permission matrix (rights per module), the administration console (signed backups and verified restores), a print-template designer, the licensed installer, and an MCP server that lets an AI assistant read the accounts and suggest journal entries for an accountant to approve. Added a quality gate that blocks any commit whose build or tests fail.
+- **Polymaille / Microtiss** (software engineer intern, Spring Boot + Angular garment ERP): owned the Stock and Sales modules end to end over a relational database; ran an OWASP Top 10 review before go-live and fixed the session-token handling.
+- **MedLink** (ESPRIM team of 6, Agile, healthcare portal API): owns the authentication module — Keycloak backend-for-frontend, CSRF and session handling, password reset, MFA; works in the team's GitHub Actions pipeline (CodeQL, Trivy, Gitleaks, OWASP ZAP).
+- **Hermes** (MERN e-commerce, moving to multi-tenant SaaS): React/TypeScript on Node/Express; built its DevSecOps pipeline in Jenkins as code (lint, secret scanning, unit and integration tests, deploy by digest).
+- **Sentinel** (secured banking platform on a microservices architecture, team of 5): designed service isolation and safe inter-service communication, packaged services in Docker, built the observability layer (Prometheus, Grafana, Loki) and the SOC (Wazuh, pfSense/VLAN).
+- **Data Center Casablanca** (GNS3 Tier III network): dual-provider BGP, paired cores with HSRP, pfSense HA pair, 14 VLANs behind default-deny, bastion with MFA, Zabbix/Grafana, mapped to ISO 27001.
+- **HQ** (personal, multi-agent AI orchestration): TypeScript/Fastify; a coordinator agent splits work across specialised agents, every tool call through an authenticated proxy, nothing runs without human approval.
+- Do **not** use the DAB project.
+
+**Certifications:** Certified Red Team Operations Management (CRTOM, 2026), Certified LLM Security Professional (CLLMSP, 2026), Cisco CCNA 200-301 (in progress).
+**Awards and leadership:** 2nd and 4th at Polytech Sousse CTF, 2nd at Insight CTF, 2nd at Clean & Green hackathon 2025, runner-up at ESPRIT Projects Ball 2025; co-founded Hunters Club (20+ members), led the Cyber & Cloud committee of DevTalents (30+ members).
+**Languages:** English (professional, TOEIC upper B2), French (fluent), Arabic (native), German (basic).
+
+### The one rule that overrides everything: no invented facts
+
+Never invent or inflate a metric, a technology, a date, or a responsibility. Use only what is in the evidence base above. Where there is no real number, use a qualitative outcome rather than a made-up figure. If a role wants something not in the evidence base, say so and leave it out; do not paper over the gap. This rule beats any "add numbers" advice further down this skill.
+
+### Voice and humanisation (so it does not read as AI-written)
+
+- Plain, natural first person. No corporate filler, no breathless adjectives.
+- Structure each bullet as problem → action → result.
+- No em dashes anywhere. No bullets that open with a bold label like "**Impact:**".
+- Lead with architecture and system-design decisions (a trade-off made, a structure chosen), not low-level bug fixes.
+- Name explicit module ownership (for example the Alfa RBAC matrix), do not be vague about what he owned.
+- Trim minutiae: no test counts, no "the reviewer asked me to", no incident-by-incident detail. Keep the real keywords for ATS.
+- Mirror the job listing's own wording for skills and tools where he genuinely has them.
 
 ---
 
@@ -76,7 +112,7 @@ Every bullet should answer: "So what? What changed because of this?"
 **Right approach (CAR):**
 > Rebuilt the social media strategy for a stagnant B2B account (Challenge), shifting from product-focused posts to customer case studies with a consistent weekly publishing schedule (Action), growing LinkedIn engagement 340% and generating 12 qualified leads in the first quarter (Result).
 
-Not every bullet needs hard numbers, but aim for at least 60% of bullets to include a measurable result. Acceptable result types:
+Prefer a measurable result where a real one exists, but never invent one (see "no invented facts" above). For this candidate most outcomes are qualitative (what was owned, built, or secured), and that is fine. Acceptable result types when the number is genuine:
 - Percentages (increased, reduced, improved by X%)
 - Dollar amounts (managed $X budget, saved $X, generated $X revenue)
 - Volume/scale (team of X, X users, X transactions per day)
@@ -229,6 +265,14 @@ List the company once with each role as a sub-entry showing clear progression. T
 
 ## Output Format
 
-Deliver the document as clean markdown. If the user needs a formatted file, offer to create it as a .md or .txt that they can paste into their preferred tool (Google Docs, Word, Canva). Do not attempt to generate .docx or .pdf files directly.
+Default deliverable: a **one-page PDF** built from HTML, not markdown. The CV must be ATS-safe and fit on exactly one page.
 
-For "both" mode, deliver the resume first, then the cover letter, in the same response.
+Build pattern (adapt to the environment; do not ship a fixed script):
+1. Generate a single self-contained HTML page: standard font (Arial), navy section headings with a thin bottom border, single column, standard headings (Summary, Education, Experience, Projects, Skills, Certifications). No tables, columns, icons, images, headers or footers.
+2. Render it to A4 PDF with headless Chromium / Playwright (`print_background`, `prefer_css_page_size`). Tune the base font size (roughly 9.0–9.3pt) so it fills one page without spilling to a second.
+3. Verify before delivering: `pdfinfo` to confirm **Pages: 1**, and `pdftotext -layout` to confirm every keyword and heading extracts cleanly and in order (that is what the ATS reads). Fix and re-render if it spills over or a section is missing.
+4. Deliver the PDF to the user. Keep the HTML so later tweaks are one small edit and re-render, not a rebuild.
+
+Where PDF rendering is not available in the environment, fall back to clean markdown and say so.
+
+For "both" mode, deliver the resume first, then the cover letter, in the same response. The cover letter uses the same header and font as the CV, stays under one page, follows the four-paragraph structure above, and adds context rather than repeating CV bullets.
